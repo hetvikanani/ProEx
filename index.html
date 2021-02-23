@@ -217,7 +217,7 @@
             <input
               class="finame"
               type="text"
-              id="fname"
+              id="fnametwo"
               name="firstname"
               placeholder="Your name.."
             />
@@ -231,7 +231,7 @@
             <input
               class="liname"
               type="text"
-              id="lname"
+              id="lnametwo"
               name="lastname"
               placeholder="Your last name.."
             />
@@ -245,55 +245,77 @@
             <input
               class="einame"
               type="text"
-              id="ename"
+              id="enametwo"
               placeholder="Your Email"
             />
             <label>Mobile Number</label>
             <input
               class="miname"
               type="number"
-              id="mname"
+              id="mnametwo"
               placeholder="Your Mobile Number"
             /><br /><br />
             <label>Gender</label>
             <label class="radio-inline">
-              <input type="radio" name="optradio" id="gname" value="male" />Male
+              <input
+                type="radio"
+                name="optradiotwo"
+                id="genamemale"
+                value="male"
+              />Male
             </label>
             <label class="radio-inline">
               <input
                 type="radio"
-                name="optradio"
-                id="gename"
+                name="optradiotwo"
+                id="genamefemale"
                 value="Female"
               />Female </label
             ><br /><br />
             <label>Birthday:</label>
-            <input type="date" id="birthday" name="birthday" />
-            <br /><br />
-            <label>Choose a City:</label>
-            <select name="cityn" id="city">
-              <option value="Rajkot">Rajkot</option>
-              <option value="Surat">Surat</option>
-              <option value="Broda">Broda</option>
-              <option value="Ahmedabad">Ahmedabad</option>
-            </select>
-            <br /><br />
-            <label>Choose a State:</label>
-            <select name="staten" id="state">
-              <option value="Gujarat">Gujarat</option>
-              <option value="Punjab">Punjab</option>
-              <option value="Goa">Goa</option>
-              <option value="maharashtra">Maharashtra</option>
-            </select>
+            <input type="date" id="birthdaytwo" name="birthday" />
+            <div style="display: flex; justify-content: space-between">
+              <div
+                style="
+                  display: flex;
+                  justify-content: flex-start;
+                  flex-direction: column;
+                "
+              >
+                <label>Choose a City:</label>
+                <select name="cityn" id="citytwo">
+                  <option value="Rajkot">Rajkot</option>
+                  <option value="Surat">Surat</option>
+                  <option value="Broda">Broda</option>
+                  <option value="Ahmedabad">Ahmedabad</option>
+                </select>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  justify-content: flex-start;
+                  flex-direction: column;
+                "
+              >
+                <label>Choose a State:</label>
+                <select name="staten" id="statetwo">
+                  <option value="Gujarat">Gujarat</option>
+                  <option value="Punjab">Punjab</option>
+                  <option value="Goa">Goa</option>
+                  <option value="maharashtra">Maharashtra</option>
+                </select>
+              </div>
+            </div>
             <br /><br />
             <label>Choose a Country:</label>
-            <select name="countryn" id="country">
+            <select name="countryn" id="countrytwo">
               <option value="India">India</option>
               <option value="China">China</option>
               <option value="Germany">Germany</option>
               <option value="Maldives">Maldives</option>
             </select>
-            <!-- <input class="siname" type="submit" value="Update" > -->
+            <br />
+            <button id="updatebtn">Update</button>
           </form>
         </div>
       </div>
