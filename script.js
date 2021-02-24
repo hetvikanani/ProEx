@@ -13,61 +13,65 @@ window.onclick = function (event) {
   }
 };
 // modal finish
-let data = [
-  // {
-  //   id: "hetvi",
-  //   firstName: "hetvi",
-  //   lastName: "kanani",
-  //   email: "enam",
-  //   mobile: 123456789,
-  //   gender: "male",
-  //   birthday: "2021-02-10",
-  //   city: "Surat",
-  //   state: "Punjab",
-  //   country: "China",
-  // },
-  // {
-  //   id: "kanani",
-  //   firstName: "kanani",
-  //   lastName: "kanani",
-  //   email: "enam",
-  //   mobile: "mname",
-  //   gender: "female",
-  //   birthday: "2021-02-15",
-  //   city: "city",
-  //   state: "state",
-  //   country: "country",
-  // },
-];
+let data = [];
 document.getElementById("updatebtn").addEventListener("click", updatadata);
 var form = document.getElementById("form");
+
+// calling
+const fname = document.getElementById("fname");
+const lname = document.getElementById("lname");
+const ename = document.getElementById("ename");
+const mname = document.getElementById("mname");
+const birthday = document.getElementById("birthday");
+const city = document.getElementById("city");
+const state = document.getElementById("state");
+const country = document.getElementById("country");
+
+let spaname = document.getElementById("spaname");
+var spalname = document.getElementById("spalname");
+var spaeiname = document.getElementById("spaeiname");
+var spaminame = document.getElementById("spaminame");
+
+function validateEmail(ename) {
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(ename);
+};
+
+
 if (form) {
   form.addEventListener("submit", add);
 }
+
 function add(e) {
   event.preventDefault();
-  const fname = document.getElementById("fname");
-  var spaname = document.getElementById("spaname");
   if (fname.value.trim() === "") {
-    spaname.innerHTML = "plz fill the feild";
+    spaname.innerHTML = "plz fill the field";
+    return false;
+  }
+  if (lname.value.trim() === "") {
+    spalname.innerHTML = "plz fill the field";
+    return false;
+  }
+  if (ename.value.trim() === "") {
+    spaeiname.innerHTML = "please fill the field";
+    return false;
+  }
+  if (ename.value != validateEmail(ename)) {
+    spaeiname.innerHTML = "plz proper email";
+
+  }
+  if (mname.value.trim() === "") {
+    spaminame.innerHTML = "please fill the field"
     return false;
   }
 
-  const lname = document.getElementById("lname");
-  // if(lname===""){
-  //     var spaname= document.getElementById("spalname").innerHTML="plz fill the feild";
-  //      return false;}
-  const ename = document.getElementById("ename");
-  const mname = document.getElementById("mname");
+
+
   const gname = document.querySelector('input[name="optradio"]:checked');
-  // let gendername=null;
-  // if(gname){
-  //     gendername=gname;
-  // }
-  const birthday = document.getElementById("birthday");
-  const city = document.getElementById("city");
-  const state = document.getElementById("state");
-  const country = document.getElementById("country");
+
+
+
+
   const detail = {
     id: fname.value,
     firstName: fname.value,
@@ -94,6 +98,8 @@ function add(e) {
   state.value = "";
   country.value = "";
 }
+
+
 function remove(event) {
   data = data.filter((element) => {
     return element.id !== event.target.id;
@@ -110,19 +116,17 @@ spantwo.onclick = function () {
 let updateid = null;
 function update(event) {
   updateid = event.target.id;
-  console.log(event.target.id);
   modaltwo.style.display = "block";
 
   let ans = data.filter((gme) => {
     return gme.id === event.target.id;
   });
-  console.log(ans);
+
 
   const fname = document.getElementById("fnametwo");
   const lname = document.getElementById("lnametwo");
   const ename = document.getElementById("enametwo");
   const mname = document.getElementById("mnametwo");
-  // const gname = document.querySelector('input[name="optradio"]:checked');
   const birthday = document.getElementById("birthdaytwo");
   const city = document.getElementById("citytwo");
   const state = document.getElementById("statetwo");
@@ -167,7 +171,7 @@ function loadData() {
   table.append(rows);
   table.innerHTML = rows;
 }
-// var fname = document.getElementById("fname").value;
+
 
 function updatadata(event) {
   event.preventDefault();
@@ -203,12 +207,31 @@ function updatadata(event) {
   loadData();
   modaltwo.style.display = "none";
 }
-document.getElementById("fname").addEventListener("keypress", (e) => {
-  console.log(e.target.value, e);
-  var spaname = document.getElementById("spaname");
+fname.addEventListener("keypress", (e) => {
 
   if (e.target.value.trim() !== "");
   {
     spaname.innerHTML = "";
+  }
+});
+
+lname.addEventListener("keypress", (e) => {
+
+  if (e.target.value.trim() != "");
+  {
+    spalname.innerHTML = "";
+  }
+});
+
+ename.addEventListener("keypress", (e) => {
+  if (e.target.value.trim() != "" && e.target.value === validateEmail(ename)); {
+    spaeiname.innerHTML = "";
+  }
+});
+
+
+mname.addEventListener('keypress', (e) => {
+  if (e.target.value.trim() != ""); {
+    spaminame.innerHTML = "";
   }
 });
