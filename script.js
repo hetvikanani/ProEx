@@ -56,10 +56,10 @@ function add(e) {
     spaeiname.innerHTML = "please fill the field";
     return false;
   }
-  if (ename.value != validateEmail(ename)) {
-    spaeiname.innerHTML = "plz proper email";
+  // if (ename.value != validateEmail(ename)) {
+  //   spaeiname.innerHTML = "plz proper email";
 
-  }
+  // }
   if (mname.value.trim() === "") {
     spaminame.innerHTML = "please fill the field"
     return false;
@@ -155,8 +155,7 @@ function loadData() {
     rows =
       rows +
       `<tr>
-             <th><i class="fa fa-pencil" aria-hidden="true" id="${data[i].id}" onclick="update(event)" style="padding-right: 10px;"></i>
-                 <i class="fa fa-trash-o" aria-hidden="true" id="${data[i].id}"  onclick="remove(event)"></i> </th>
+            
              <td>${data[i].firstName}</td>
              <td>${data[i].lastName}</td>
              <td>${data[i].email}</td>
@@ -166,6 +165,8 @@ function loadData() {
              <td>${data[i].city}</td>
              <td>${data[i].state}</td>
              <td>${data[i].country}</td>
+             <th><i class="fa fa-pencil" aria-hidden="true" id="${data[i].id}" onclick="update(event)" style="padding-right: 10px;"></i>
+             <i class="fa fa-trash-o" aria-hidden="true" id="${data[i].id}"  onclick="remove(event)"></i> </th>
  </tr>`;
   }
   table.append(rows);
