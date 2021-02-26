@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        .modal,
+        .modeltwo {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Modal Content/Box */
+        .modal-content,
+        .modal-content-two {
+            background-color: #FEFEFE;
+            margin: 1% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+        }
+
+        /* The Close Button */
+        .close,
+        .closetwo {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus,
+        .closetwo:hover,
+        .closetwo:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        
+
+        .finame,
+        .liname,
+        .einame,
+        .miname {
+            width: 100%;
+            padding: 6px 10px;
+            margin: 4px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .siname {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+    .userlist{
+      margin: 50px 20px;
+    }
+
+    .panel-heading {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 5px 15px;
+    }
+
+    .m-10{
+      margin: 10px;
+    }
+    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="userlist">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="m-10">User List</h2>
+                        <button id="myBtn" class="btn btn-primary m-10">Add Role</button>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Mobile_Number</th>
+                                        <th scope="col">Gender</th>
+                                        <th scope="col">Birthday</th>
+                                        <th scope="col">City</th>
+                                        <th scope="col">State</th>
+                                        <th scope="col">Country</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table">
+                                    <tr>
+                                        <th scope="row"></th>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- model start -->
+<!-- add mate -->
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <!-- form -->
+            
+                <h3 style="text-align: center">Registration Form</h3>
+                <form id="form">
+                    <div style="display: flex; justify-content: space-between">
+                        <div style="
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                      ">
+                    <label for="fname">First Name</label>
+                    <input class="finame" type="text" id="fname" name="firstname" placeholder="Your name.."/>
+                    <span id="spaname" class="text-danger font-weight-bold" style="font-size: large"></span>
+                        </div>
+                     
+                            <div style="
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            margin-right: 100px;
+                          ">
+                    
+                    <label for="lname">Last Name</label>
+                    <input class="liname" type="text" id="lname" name="lastname" placeholder="Your last name.." />
+                    <span id="spalname" class="text-danger font-weight-bold" style="font-size: large"></span>
+                            
+                   </div>
+                   </div>
+                    <div style="display: flex; justify-content: space-between">
+
+                        <div style="
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        margin-right: 100px;
+                      "><label>Email</label>
+                    <input class="einame" type="text" id="ename" placeholder="Your Email" />
+                    <span id="spaeiname" class="text-danger font-weight-bold" style="font-size: large"></span>
+                      </div>
+                        <div style="
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        margin-right: 100px;
+                      "><label>Mobile Number</label>
+                    <input class="miname" type="number" id="mname" placeholder="Your Mobile Number" />
+                    <span id="spaminame" class="text-danger font-weight-bold" style="font-size: large"></span></div>
+                    </div>
+                    <br/>
+
+                    <div style="display: flex; justify-content: space-between">
+                        <div style="
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        margin-right: 100px;
+                      ">
+                            <label>Gender</label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" id="gname" value="male" />Male
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="optradio" id="gename" value="Female" style="margin-right: 0rem;"/>Female </label>
+                        </div>
+                        <div style="
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        margin-right: 100px;
+                      "> <label>Birthday:</label>
+                    <input type="date" id="birthday" name="birthday" /></div>
+                    </div>
+                    
+                    
+                   
+                    
+                    <label>Choose a City:</label>
+                    <select name="cityn" id="city">
+                        <option value="Rajkot">Rajkot</option>
+                        <option value="Surat">Surat</option>
+                        <option value="Broda">Broda</option>
+                        <option value="Ahmedabad">Ahmedabad</option>
+                    </select>
+                    <br /><br />
+                    <label>Choose a State:</label>
+                    <select name="staten" id="state">
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Goa">Goa</option>
+                        <option value="maharashtra">Maharashtra</option>
+                    </select>
+                    <br /><br />
+                    <label>Choose a Country:</label>
+                    <select name="countryn" id="country">
+                        <option value="India">India</option>
+                        <option value="China">China</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Maldives">Maldives</option>
+                    </select>
+                    <input class="siname" type="submit" value="Submit" />
+                </form>
+
+        </div>
+    </div>
+   
+    
+    
+    <!-- model start -->
+    <!-- <button id="update" class="btn btn-primary btn-lg"></button> -->
+    <!-- The Modal -->
+    <!-- update mate -->
+    <div id="myModalTwo" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content-two">
+            <span class="closetwo">&times;</span>
+            <!-- form -->
+            <div style="border-radius: 5px; background-color: #F2F2F2; padding: 20px">
+                <form id="form">
+                    <label for="fname">First Name</label>
+                    <input class="finame" type="text" id="fnametwo" name="firstname" placeholder="Your name.." />
+                    <span id="spaname" class="text-danger font-weight-bold" style="font-size: large"></span>
+                
+                    <label for="lname">Last Name</label>
+                    <input class="liname" type="text" id="lnametwo" name="lastname" placeholder="Your last name.." />
+                    <span id="spalname" class="text-danger font-weight-bold" style="font-size: large"></span>
+                    <br />
+                    <label>Email</label>
+                    <input class="einame" type="text" id="enametwo" placeholder="Your Email" />
+                    <label>Mobile Number</label>
+                    <input class="miname" type="number" id="mnametwo" placeholder="Your Mobile Number" /><br /><br />
+                    <label>Gender</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradiotwo" id="genamemale" value="male" />Male
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradiotwo" id="genamefemale" value="Female" />Female
+                    </label><br /><br />
+                    <label>Birthday:</label>
+                    <input type="date" id="birthdaytwo" name="birthday" />
+                    <div style="display: flex; justify-content: space-between">
+                        <div style="
+                  display: flex;
+                  justify-content: flex-start;
+                  flex-direction: column;
+                ">
+                            <label>Choose a City:</label>
+                            <select name="cityn" id="citytwo">
+                                <option value="Rajkot">Rajkot</option>
+                                <option value="Surat">Surat</option>
+                                <option value="Broda">Broda</option>
+                                <option value="Ahmedabad">Ahmedabad</option>
+                            </select>
+                        </div>
+                        <div style="
+                  display: flex;
+                  justify-content: flex-start;
+                  flex-direction: column;
+                ">
+                            <label>Choose a State:</label>
+                            <select name="staten" id="statetwo">
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Goa">Goa</option>
+                                <option value="maharashtra">Maharashtra</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br /><br />
+                    <label>Choose a Country:</label>
+                    <select name="countryn" id="countrytwo">
+                        <option value="India">India</option>
+                        <option value="China">China</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Maldives">Maldives</option>
+                    </select>
+                    <br />
+                    <button id="updatebtn">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- model end -->
+    <script src="script.js"></script>
+</body>
+
+</html>

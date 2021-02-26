@@ -69,10 +69,7 @@ function add(e) {
 
   const gname = document.querySelector('input[name="optradio"]:checked');
 
-
-
-
-  const detail = {
+const detail = {
     id: fname.value,
     firstName: fname.value,
     lastName: lname.value,
