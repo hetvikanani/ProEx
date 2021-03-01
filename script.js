@@ -44,7 +44,7 @@ if (form) {
 
 function add(e) {
   event.preventDefault();
-  if (fname.value.trim() === "") {
+  if (fname.value.trim() === "") {  
     spaname.innerHTML = "plz fill the field";
     return false;
   }
@@ -178,8 +178,8 @@ function updatadata(event) {
   const lname = document.getElementById("lnametwo").value;
   const ename = document.getElementById("enametwo").value;
   const mname = document.getElementById("mnametwo").value;
-  const gname = document.querySelector('input[name="optradiotwo"]:checked')
-    .value;
+  // const gname = document.querySelector('input[name="optradiotwo"]:checked'); 
+  const gname=document.getElementById(""); 
   const birthday = document.getElementById("birthdaytwo").value;
   const city = document.getElementById("citytwo").value;
   const state = document.getElementById("statetwo").value;
