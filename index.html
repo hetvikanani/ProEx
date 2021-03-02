@@ -64,8 +64,8 @@
 
         .siname {
         
-            padding: 4px 20px; 
-            margin:5px 0; 
+            padding: 7px 17px; 
+           
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -87,6 +87,7 @@
     .m-10{
       margin: 10px;
     }
+
     </style>
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -102,7 +103,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2 class="m-10">User List</h2>
-                        <button id="myBtn" class="btn btn-primary m-10">Add Role</button>
+                         <button id="myBtn" class="btn btn-primary m-10">Add Role</button>
                     </div>
                     <div class="panel-body">
                         <div>
@@ -147,17 +148,20 @@
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->
-        <div class="modal-content">
-            <div class="modal-header" style="padding: 2px 16px;
-            background-color: #5cb85c;
-            color: white;">
+           <div class="modal-content">
+            <div class="modal-header" style="margin-top: -20px;
+            margin-left: -20px;
+            margin-right: -20px;
+            background-color:lightblue;
+            color: white;
+           ">
             <span class="close">&times;</span>
-            <!-- form -->
+           
             
                 <h3 style="text-align: center; margin: 4px;  border-radius: 2px;">Registration Form</h3>
             </div>
             <div class="modal-body" style="padding: 2px 16px;">
-                <form id="form">
+                <form id="form" autocomplete="off">
                     <div style="display: flex; justify-content: space-between; padding-top: 2rem;">
                         <div style="
                         display: flex;
@@ -216,11 +220,12 @@
                         margin-left: 3rem;
                       ">
                             <label>Gender</label>
-                            <label class="radio-inline">
+                            <label class="radio-inline" style="margin-left: 10px;">
                                 <input type="radio" name="optradio" id="gname" value="male" />Male
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="optradio" id="gename" value="Female" style="margin-right: 0rem;"/>Female </label>
+                                <input type="radio" name="optradio" id="gename" value="female" />Female 
+                            </label>
                         </div>
                         <div style="
                         display: flex;
@@ -278,11 +283,14 @@
                     </select></div>
                     </div> <br><br>
                     <div class="modal-footer" style="
-                    background-color: #5cb85c;
+                    background-color: lightblue;
                      color:black; 
                      padding: 20px;
-                      text-align: right;"> 
-                        <input class="siname" type="submit" value="Submit" />
+                      text-align: right;
+                      margin-bottom: -22px;
+    margin-left: -36px;
+    margin-right: -36px;"> 
+                        <input class="btn btn-success siname"  type="submit" value="Submit" />
                       </div>
                    
                 </form>
@@ -302,71 +310,143 @@
         <div class="modal-content-two">
             <span class="closetwo">&times;</span>
             <!-- form -->
-            <div style="border-radius: 5px; background-color: #F2F2F2; padding: 20px">
-                <form id="form">
-                    <label for="fname">First Name</label>
-                    <input class="finame" type="text" id="fnametwo" name="firstname" placeholder="Your name.." />
-                    <span id="spaname" class="text-danger font-weight-bold" style="font-size: large"></span>
-                
-                    <label for="lname">Last Name</label>
-                    <input class="liname" type="text" id="lnametwo" name="lastname" placeholder="Your last name.." />
-                    <span id="spalname" class="text-danger font-weight-bold" style="font-size: large"></span>
-                    <br />
-                    <label>Email</label>
-                    <input class="einame" type="text" id="enametwo" placeholder="Your Email" />
-                    <label>Mobile Number</label>
-                    <input class="miname" type="number" id="mnametwo" placeholder="Your Mobile Number" /><br /><br />
-                    <label>Gender</label>
-                    <label class="radio-inline">
-                        <input type="radio" name="optradiotwo" id="genamemale" value="male" />Male
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="optradiotwo" id="genamefemale" value="Female" />Female
-                    </label><br /><br />
-                    <label>Birthday:</label>
-                    <input type="date" id="birthdaytwo" name="birthday" />
-                    <div style="display: flex; justify-content: space-between">
-                        <div style="
-                  display: flex;
-                  justify-content: flex-start;
-                  flex-direction: column;
-                ">
-                            <label>Choose a City:</label>
-                            <select name="cityn" id="citytwo">
-                                <option value="Rajkot">Rajkot</option>
-                                <option value="Surat">Surat</option>
-                                <option value="Broda">Broda</option>
-                                <option value="Ahmedabad">Ahmedabad</option>
-                            </select>
+           
+                <div class="modal-body" style="padding: 2px 16px;">
+                    <form id="form" >
+                        <div style="display: flex; justify-content: space-between; padding-top: 2rem;">
+                            <div style="
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            margin-left: 3rem;
+                          ">
+                        <label for="fname">First Name</label>
+                        <input class="finame" type="text" id="fnametwo" name="firstname" placeholder="Your name.."/>
+                        <span id="spaname" class="text-danger font-weight-bold" style="font-size: large"></span>
+                            </div>
+                         
+                                <div style="
+                                display: flex;
+                                justify-content: flex-start;
+                                flex-direction: column;
+                                margin-right: 100px;
+                              ">
+                        
+                        <label for="lname">Last Name</label>
+                        <input class="liname" type="text" id="lnametwo" name="lastname" placeholder="Your last name.." />
+                        <span id="spalname" class="text-danger font-weight-bold" style="font-size: large"></span>
+                                
+                       </div>
+                       </div>
+                       <br>
+                        <div style="display: flex; justify-content: space-between">
+    
+                            <div style="
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            margin-right: 100px;
+                            margin-left: 3rem;
+                          "><label>Email</label>
+                        <input class="einame" type="text" id="enametwo" placeholder="Your Email" />
+                        <span id="spaeiname" class="text-danger font-weight-bold" style="font-size: large"></span>
+                          </div>
+                            <div style="
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            margin-right: 100px;
+                          "><label>Mobile Number</label>
+                        <input class="miname" type="number" id="mnametwo" placeholder="Your Mobile Number" />
+                        <span id="spaminame" class="text-danger font-weight-bold" style="font-size: large"></span></div>
                         </div>
+                        <br/>
+    
+                        <div style="display: flex; justify-content: space-between">
+                            <div style="
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            margin-right: 100px;
+                            margin-left: 3rem;
+                          ">
+                                <label>Gender</label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="optradiotwo" id="gnamemale" value="male" />Male
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="optradiotwo" id="genamefemale" value="Female" style="margin-right: 0rem;"/>Female </label>
+                            </div>
+                            <div style="
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            margin-right: 140px;
+                          "> <label>Birthday:</label>
+                        <input type="date" id="birthdaytwo" name="birthday" /></div>
+                        </div><br><br>
+                        
+                        
+                       
+                        <div style="display: flex; justify-content: space-between">
+                            <div style="
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-direction: column;
+                            margin-right: 140px;
+                            margin-left: 3rem;
+    
+                          "> <label>Choose a Country:</label>
+                        <select name="countryn" id="countrytwo">
+                            <option value="India">India</option>
+                            <option value="China">China</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Maldives">Maldives</option>
+                        </select></div>
+                       
                         <div style="
-                  display: flex;
-                  justify-content: flex-start;
-                  flex-direction: column;
-                ">
-                            <label>Choose a State:</label>
-                            <select name="staten" id="statetwo">
-                                <option value="Gujarat">Gujarat</option>
-                                <option value="Punjab">Punjab</option>
-                                <option value="Goa">Goa</option>
-                                <option value="maharashtra">Maharashtra</option>
-                            </select>
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        margin-right: 140px;
+                      ">
+     <label>Choose a State:</label>
+     <select name="staten" id="statetwo">
+         <option value="Gujarat">Gujarat</option>
+         <option value="Punjab">Punjab</option>
+         <option value="Goa">Goa</option>
+         <option value="maharashtra">Maharashtra</option>
+     </select>
                         </div>
-                    </div>
-                    <br /><br />
-                    <label>Choose a Country:</label>
-                    <select name="countryn" id="countrytwo">
-                        <option value="India">India</option>
-                        <option value="China">China</option>
-                        <option value="Germany">Germany</option>
-                        <option value="Maldives">Maldives</option>
-                    </select>
-                    <br />
-                    <button id="updatebtn">Update</button>
+                       
+                        <div style="
+                        display: flex;
+                        justify-content: flex-start;
+                        flex-direction: column;
+                        margin-right: 140px;
+                      " ><label>Choose a Cities:</label>
+                        <select name="cityn" id="citytwo">
+                            <option value="Rajkot">Rajkot</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Broda">Broda</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                        </select></div>
+                        </div> <br><br>
+                        <div class="modal-footer" style="
+                        background-color: lightblue;
+                         color:black; 
+                         padding: 20px;
+                          text-align: right;
+                          margin-bottom: -22px;
+        margin-left: -36px;
+        margin-right: -36px;"> 
+                    <button id="updatebtn" class="btn btn-primary">Update</button>
+                        </div>
                 </form>
             </div>
         </div>
     </div>
+    
     <!-- model end -->
     <script src="script.js"></script>
 </body>
