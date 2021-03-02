@@ -1,10 +1,16 @@
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
+var spantwo = document.getElementsByClassName("closetwo")[0];
+
 btn.onclick = function () {
   modal.style.display = "block";
 };
 span.onclick = function () {
+  modal.style.display = "none";
+};
+
+spantwo.onclick = function () {
   modal.style.display = "none";
 };
 window.onclick = function (event) {
@@ -42,7 +48,7 @@ if (form) {
   form.addEventListener("submit", add);
 }
 
-function add(e) {
+function add(event) {
   event.preventDefault();
   if (fname.value.trim() === "") {  
     spaname.innerHTML = "plz fill the field";
@@ -63,12 +69,11 @@ function add(e) {
   if (mname.value.trim() === "") {
     spaminame.innerHTML = "please fill the field"
     return false;
-  }
+  } 
 
 
 
   const gname = document.querySelector('input[name="optradio"]:checked');
-
 const detail = {
     id: fname.value,
     firstName: fname.value,
@@ -82,6 +87,7 @@ const detail = {
     country: country.value,
   };
   data.push(detail);
+  console.log(data);
   loadData();
   modal.style.display = "none";
 
@@ -104,7 +110,7 @@ function remove(event) {
   loadData();
 }
 var modaltwo = document.getElementById("myModalTwo");
-var btnjevu = document.getElementById("btnjevu");
+
 var spantwo = document.getElementsByClassName("closetwo")[0];
 spantwo.onclick = function () {
   modaltwo.style.display = "none";
@@ -152,7 +158,7 @@ function loadData() {
     rows =
       rows +
       `<tr>
-            
+
              <td>${data[i].firstName}</td>
              <td>${data[i].lastName}</td>
              <td>${data[i].email}</td>
@@ -178,8 +184,8 @@ function updatadata(event) {
   const lname = document.getElementById("lnametwo").value;
   const ename = document.getElementById("enametwo").value;
   const mname = document.getElementById("mnametwo").value;
-  // const gname = document.querySelector('input[name="optradiotwo"]:checked'); 
-  const gname=document.getElementById(""); 
+  const gname = document.querySelector('input[name="optradiotwo"]:checked').value; 
+   
   const birthday = document.getElementById("birthdaytwo").value;
   const city = document.getElementById("citytwo").value;
   const state = document.getElementById("statetwo").value;
@@ -233,3 +239,10 @@ mname.addEventListener('keypress', (e) => {
     spaminame.innerHTML = "";
   }
 });
+
+
+
+
+  
+    
+

@@ -87,6 +87,7 @@
     .m-10{
       margin: 10px;
     }
+
     </style>
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -102,7 +103,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2 class="m-10">User List</h2>
-                        <button id="myBtn" class="btn btn-primary m-10">Add Role</button>
+                         <button id="myBtn" class="btn btn-primary m-10">Add Role</button>
                     </div>
                     <div class="panel-body">
                         <div>
@@ -160,7 +161,7 @@
                 <h3 style="text-align: center; margin: 4px;  border-radius: 2px;">Registration Form</h3>
             </div>
             <div class="modal-body" style="padding: 2px 16px;">
-                <form id="form">
+                <form id="form" autocomplete="off">
                     <div style="display: flex; justify-content: space-between; padding-top: 2rem;">
                         <div style="
                         display: flex;
@@ -219,11 +220,12 @@
                         margin-left: 3rem;
                       ">
                             <label>Gender</label>
-                            <label class="radio-inline">
+                            <label class="radio-inline" style="margin-left: 10px;">
                                 <input type="radio" name="optradio" id="gname" value="male" />Male
                             </label>
                             <label class="radio-inline">
-                                <input type="radio" name="optradio" id="gename" value="Female" style="margin-right: 0rem;"/>Female </label>
+                                <input type="radio" name="optradio" id="gename" value="female" />Female 
+                            </label>
                         </div>
                         <div style="
                         display: flex;
@@ -310,7 +312,7 @@
             <!-- form -->
            
                 <div class="modal-body" style="padding: 2px 16px;">
-                    <form id="form">
+                    <form id="form" >
                         <div style="display: flex; justify-content: space-between; padding-top: 2rem;">
                             <div style="
                             display: flex;
@@ -370,10 +372,10 @@
                           ">
                                 <label>Gender</label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio" id="gnamemale" value="male" />Male
+                                    <input type="radio" name="optradiotwo" id="gnamemale" value="male" />Male
                                 </label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio" id="genamefemale" value="Female" style="margin-right: 0rem;"/>Female </label>
+                                    <input type="radio" name="optradiotwo" id="genamefemale" value="Female" style="margin-right: 0rem;"/>Female </label>
                             </div>
                             <div style="
                             display: flex;
@@ -438,7 +440,7 @@
                           margin-bottom: -22px;
         margin-left: -36px;
         margin-right: -36px;"> 
-                    <button id="updatebtn">Update</button>
+                    <button id="updatebtn" class="btn btn-primary">Update</button>
                         </div>
                 </form>
             </div>
