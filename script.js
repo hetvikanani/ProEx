@@ -1,3 +1,26 @@
+let data = [
+{
+  city: "Rajkot",
+email: "ffd",
+firstName: "hetvi",
+gender: "female",
+lastName: "kanani",
+mobile: "65566",
+},
+{
+  email: "ffd",
+firstName: "chaku",
+gender: "female",
+lastName: "kanani",
+},
+{
+  email: "ffd",
+firstName: "vasu",
+gender: "female",
+lastName: "kanani",
+},
+];
+console.log(data);
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
@@ -19,7 +42,7 @@ window.onclick = function (event) {
   }
 };
 // modal finish
-let data = [];
+
 document.getElementById("updatebtn").addEventListener("click", updatadata);
 var form = document.getElementById("form");
 
@@ -27,7 +50,7 @@ var form = document.getElementById("form");
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
 const ename = document.getElementById("ename");
-const mname = document.getElementById("mname");
+const mname = document.getElementById("mname"); 
 const birthday = document.getElementById("birthday");
 const city = document.getElementById("city");
 const state = document.getElementById("state");
@@ -37,6 +60,8 @@ let spaname = document.getElementById("spaname");
 var spalname = document.getElementById("spalname");
 var spaeiname = document.getElementById("spaeiname");
 var spaminame = document.getElementById("spaminame");
+var btnsearch=document.getElementById("btnsearch");
+
 
 function validateEmail(ename) {
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -87,7 +112,7 @@ const detail = {
     country: country.value,
   };
   data.push(detail);
-  console.log(data);
+  console.log(data);  
   loadData();
   modal.style.display = "none";
 
@@ -102,6 +127,13 @@ const detail = {
   country.value = "";
 }
 
+function searchh(){
+var search=document.getElementById("search").value;
+
+console.log(search);
+console.log(data.filter((d)=>d.firstName===search));
+loadData(data.filter((d)=>d.firstName===search));
+}
 
 function remove(event) {
   data = data.filter((element) => {
@@ -151,23 +183,26 @@ function update(event) {
   state.value = ans[0].state;
   country.value = ans[0].country;
 }
-function loadData() {
+function loadData(newData) {
+  // console.log(newData);  
+let finalData=data;
+if(newData)finalData=newData;
   const table = document.getElementById("table");
   let rows = "";
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < finalData.length; i++) {
     rows =
       rows +
       `<tr>
 
-             <td>${data[i].firstName}</td>
-             <td>${data[i].lastName}</td>
-             <td>${data[i].email}</td>
-             <td>${data[i].mobile}</td>
-             <td>${data[i].gender}</td>
-             <td>${data[i].birthday}</td>
-             <td>${data[i].city}</td>
-             <td>${data[i].state}</td>
-             <td>${data[i].country}</td>
+             <td>${finalData[i].firstName}</td>
+             <td>${finalData[i].lastName}</td>
+             <td>${finalData[i].email}</td>
+             <td>${finalData[i].mobile}</td>
+             <td>${finalData[i].gender}</td>
+             <td>${finalData[i].birthday}</td>
+             <td>${finalData[i].city}</td>
+             <td>${finalData[i].state}</td>
+             <td>${finalData[i].country}</td>
              <th><i class="fa fa-pencil" aria-hidden="true" id="${data[i].id}" onclick="update(event)" style="padding-right: 10px;"></i>
              <i class="fa fa-trash-o" aria-hidden="true" id="${data[i].id}"  onclick="remove(event)"></i> </th>
  </tr>`;
@@ -202,7 +237,7 @@ function updatadata(event) {
     state: state,
     country: country,
   };
-  console.log(updateid);
+ 
   for (let i = 0; i < data.length; i++) {
     if (data[i].id === updateid) {
       data[i] = detail;
@@ -240,6 +275,9 @@ mname.addEventListener('keypress', (e) => {
   }
 });
 
+
+ 
+loadData()
 
 
  
