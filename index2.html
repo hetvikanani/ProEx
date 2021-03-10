@@ -77,8 +77,14 @@
                   <th>Action</th>
                 </tr>
               </thead>
-            
-                
+           
+                <!-- <tbody id="table">
+                  <tr>
+                    <td>
+
+                    </td>
+                  </tr>
+                </tbody> -->
                   
                  <!-- <tr > -->
                 <!-- <td>Tiger Nixon</td>
@@ -88,7 +94,7 @@
                 <td>2011/04/25</td>
                 <td>$320,800</td> -->
             <!-- </tr>  -->
-              </tbody>
+              <!-- </tbody> -->
             </table>
           </div>
         </div>
@@ -325,11 +331,13 @@
                 margin-right: -36px;
               "
             >
-              <input
+            <button id="buttonTest" class="btn btn-success siname">Submit</button>
+              <!-- <input
+                id="buttonTest"
                 class="btn btn-success siname"
                 type="submit"
                 value="Submit"
-              />
+              /> -->
             </div>
           </form>
         </div>
@@ -588,11 +596,15 @@
       src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"
     ></script>
     <script>
+     
       $(document).ready(function () {
-        $("#table").DataTable({});
-      });
-      $(document).ready(function () {
-        $("#datatable").DataTable({});
+        $("#datatable").DataTable({
+
+        });
+        var table=$("#datatable").DataTable();
+        $("#buttonTest").on("click",function(){
+         table.row.add([fname.value,lname.value,ename.value,mname.value,gname.value,birthday.value,city.value,state.value,country.value]).draw(false);
+        }); 
       });
     </script>
      <script src="script2.js"></script>

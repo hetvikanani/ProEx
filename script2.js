@@ -72,14 +72,14 @@ const detail = {
     state: state.value,
     country: country.value,
   };
-  data.push(detail);
+  // data.push(detail);
   loadData();
   modal.style.display = "none";
   fname.value = "";
   lname.value = "";
   ename.value = "";
   mname.value = "";
-  gname.value = "";
+  // gname.value = "";s
   birthday.value = "";
   city.value = "";
   state.value = "";
@@ -98,6 +98,7 @@ spantwo.onclick = function () {
   modaltwo.style.display = "none";
 };
 let updateid = null;
+
 
 function update(event) {
   updateid = event.target.id;
@@ -148,8 +149,8 @@ function loadData() {
              <i class="fa fa-trash-o" aria-hidden="true" id="${data[i].id}"  onclick="remove(event)"></i> </th>
  </tr>`;
   }
-  table.append(rows);
-  table.innerHTML = rows;
+  // table.append(rows);
+  // table.innerHTML = rows;
 }
 function updatadata(event) {
   event.preventDefault();
