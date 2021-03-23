@@ -93,6 +93,11 @@
       .m-10 {
         margin: 10px;
       }
+
+      .activePageBorder{
+        border-color:red  !important;
+        border-width: 1.3px !important;
+      }
     </style>
   </head>
 
@@ -101,13 +106,44 @@
       <div class="row">
         <div class="userlist">
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <div
+              class="panel-heading"
+              style="
+                display: flex;
+
+                align-items: center;
+              "
+            >
               <h2 class="m-10">User List</h2>
               <button id="myBtn" class="btn btn-primary m-10">Add Role</button>
-              <button id="btnsearch" onclick="searchh()">search</button>
-              <input type="search" id="search" name="search" >  
+              <div
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  flex-direction: row;
+                "
+              >
+                <div class="form-group" style="margin-bottom: 0 !important">
+                  <input
+                  placeholder="Type to search"
+                    class="form-control"
+                    type="search"
+                    id="search"
+                    name="search"
+                  />
+                </div>
+                <button
+               
+                  id="btnsearch"
+                  class="btn btn-primary m-10"
+                  onclick="searchh()"
+                >
+                  search
+                </button>
+              </div>
             </div>
-            <div class="panel-body">
+            <div class="panel-body" >
               <div>
                 <table id="tabledata" class="table table-striped">
                   <thead>
@@ -132,8 +168,33 @@
                 </table>
               </div>
             </div>
+            <nav aria-label="Page navigation example" style="float: right;">
+              <ul id='customPagination' class="pagination" style="margin: 0  !important;">
+                <!-- <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                </li> -->
+                <li class="page-item" ><a style="margin: 0.5rem;" class="page-link" href="#">1</a></li>
+                <li class="page-item" ><a style="margin: 0.5rem;" class="page-link" href="#">2</a></li>
+                <li class="page-item" ><a style="margin: 0.5rem;" class="page-link" href="#">3</a></li>
+                <!-- <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </li> -->
+                
+              </ul>
+              <div>Total User : <span id='totalUserCount'></span></div>
+            </nav>
+            
           </div>
+          
+          
         </div>
+        </nav>
       </div>
     </div>
 
@@ -155,11 +216,11 @@
         >
           <span class="close">&times;</span>
 
-          <h3 style="text-align: center; margin: 4px; border-radius: 2px;">
+          <h3 style="text-align: center; margin: 4px; border-radius: 2px">
             Registration Form
           </h3>
         </div>
-        <div class="modal-body" style="padding: 2px 16px;">
+        <div class="modal-body" style="padding: 2px 16px">
           <form id="form" autocomplete="off">
             <div
               style="
@@ -187,7 +248,7 @@
                 <span
                   id="spaname"
                   class="text-danger font-weight-bold"
-                  style="font-size: large;"
+                  style="font-size: large"
                 ></span>
               </div>
 
@@ -210,12 +271,12 @@
                 <span
                   id="spalname"
                   class="text-danger font-weight-bold"
-                  style="font-size: large;"
+                  style="font-size: large"
                 ></span>
               </div>
             </div>
             <br />
-            <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between">
               <div
                 style="
                   display: flex;
@@ -235,7 +296,7 @@
                 <span
                   id="spaeiname"
                   class="text-danger font-weight-bold"
-                  style="font-size: large;"
+                  style="font-size: large"
                 ></span>
               </div>
               <div
@@ -256,13 +317,13 @@
                 <span
                   id="spaminame"
                   class="text-danger font-weight-bold"
-                  style="font-size: large;"
+                  style="font-size: large"
                 ></span>
               </div>
             </div>
             <br />
 
-            <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between">
               <div
                 style="
                   display: flex;
@@ -273,7 +334,7 @@
                 "
               >
                 <label>Gender</label>
-                <label class="radio-inline" style="margin-left: 10px;">
+                <label class="radio-inline" style="margin-left: 10px">
                   <input type="radio" name="optradio" id="gname" value="male" />
                   Male
                 </label>
@@ -302,7 +363,7 @@
             <br />
             <br />
 
-            <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between">
               <div
                 style="
                   display: flex;
@@ -387,10 +448,26 @@
     <div id="myModalTwo" class="modal">
       <!-- Modal content -->
       <div class="modal-content-two">
-        <span class="closetwo">&times;</span>
+        <div
+          class="modal-header"
+          style="
+            margin-top: -20px;
+            margin-left: -20px;
+            margin-right: -20px;
+            background-color: lightblue;
+            color: white;
+          "
+        >
+          <span id="closeButtonForUpdateModal" class="closetwo">&times;</span>
+
+          <h3 style="text-align: center; margin: 4px; border-radius: 2px">
+            Update Form
+          </h3>
+        </div>
+
         <!-- form -->
 
-        <div class="modal-body" style="padding: 2px 16px;">
+        <div class="modal-body" style="padding: 2px 16px">
           <form id="form">
             <div
               style="
@@ -418,7 +495,7 @@
                 <span
                   id="spaname"
                   class="text-danger font-weight-bold"
-                  style="font-size: large;"
+                  style="font-size: large"
                 ></span>
               </div>
 
@@ -441,12 +518,12 @@
                 <span
                   id="spalname"
                   class="text-danger font-weight-bold"
-                  style="font-size: large;"
+                  style="font-size: large"
                 ></span>
               </div>
             </div>
             <br />
-            <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between">
               <div
                 style="
                   display: flex;
@@ -466,7 +543,7 @@
                 <span
                   id="spaeiname"
                   class="text-danger font-weight-bold"
-                  style="font-size: large;"
+                  style="font-size: large"
                 ></span>
               </div>
               <div
@@ -487,13 +564,13 @@
                 <span
                   id="spaminame"
                   class="text-danger font-weight-bold"
-                  style="font-size: large;"
+                  style="font-size: large"
                 ></span>
               </div>
             </div>
             <br />
 
-            <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between">
               <div
                 style="
                   display: flex;
@@ -508,7 +585,7 @@
                   <input
                     type="radio"
                     name="optradiotwo"
-                    id="gnamemale"
+                    id="gnamemaleupdate"
                     value="male"
                   />
                   Male
@@ -517,9 +594,9 @@
                   <input
                     type="radio"
                     name="optradiotwo"
-                    id="genamefemale"
+                    id="genamefemaleupdate"
                     value="Female"
-                    style="margin-right: 0rem;"
+                    style="margin-right: 0rem"
                   />
                   Female
                 </label>
@@ -539,7 +616,7 @@
             <br />
             <br />
 
-            <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; justify-content: space-between">
               <div
                 style="
                   display: flex;

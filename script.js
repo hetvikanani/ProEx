@@ -1,31 +1,36 @@
 let data = [
-{
-  city: "Rajkot",
-email: "ffd",
-firstName: "hetvi",
-gender: "female",
-lastName: "kanani",
-mobile: "65566",
-},
-{
-  email: "ffd",
-firstName: "chaku",
-gender: "female",
-lastName: "kanani",
-},
-{
-  email: "ffd",
-firstName: "vasu",
-gender: "female",
-lastName: "kanani",
-},
+  {
+    city: "Rajkot",
+    email: "ffd",
+    firstName: "hetvi",
+    gender: "female",
+    lastName: "kanani",
+    mobile: "65566",
+  },
+  {
+    email: "ffd",
+    firstName: "chaku",
+    gender: "female",
+    lastName: "kanani",
+  },
+  {
+    email: "ffd",
+    firstName: "vasu",
+    gender: "female",
+    lastName: "kanani",
+  },
 ];
+const constLimit = 5;
+const constPageNumber = 1;
+const customPagination = document.getElementById("customPagination");
+
 console.log(data);
 var modal = document.getElementById("myModal");
+var myModalTwo = document.getElementById("myModalTwo");
 var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 var spantwo = document.getElementsByClassName("closetwo")[0];
-
+console.log(spantwo, "done");
 btn.onclick = function () {
   modal.style.display = "block";
 };
@@ -33,12 +38,12 @@ span.onclick = function () {
   modal.style.display = "none";
 };
 
-spantwo.onclick = function () {
-  modal.style.display = "none";
-};
 window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+  if (event.target == myModalTwo) {
+    myModalTwo.style.display = "none";
   }
 };
 // modal finish
@@ -50,7 +55,7 @@ var form = document.getElementById("form");
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
 const ename = document.getElementById("ename");
-const mname = document.getElementById("mname"); 
+const mname = document.getElementById("mname");
 const birthday = document.getElementById("birthday");
 const city = document.getElementById("city");
 const state = document.getElementById("state");
@@ -60,14 +65,12 @@ let spaname = document.getElementById("spaname");
 var spalname = document.getElementById("spalname");
 var spaeiname = document.getElementById("spaeiname");
 var spaminame = document.getElementById("spaminame");
-var btnsearch=document.getElementById("btnsearch");
-
+var btnsearch = document.getElementById("btnsearch");
 
 function validateEmail(ename) {
   const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(ename);
-};
-
+}
 
 if (form) {
   form.addEventListener("submit", add);
@@ -75,7 +78,7 @@ if (form) {
 
 function add(event) {
   event.preventDefault();
-  if (fname.value.trim() === "") {  
+  if (fname.value.trim() === "") {
     spaname.innerHTML = "plz fill the field";
     return false;
   }
@@ -92,14 +95,12 @@ function add(event) {
 
   // }
   if (mname.value.trim() === "") {
-    spaminame.innerHTML = "please fill the field"
+    spaminame.innerHTML = "please fill the field";
     return false;
-  } 
-
-
+  }
 
   const gname = document.querySelector('input[name="optradio"]:checked');
-const detail = {
+  const detail = {
     id: fname.value,
     firstName: fname.value,
     lastName: lname.value,
@@ -112,7 +113,7 @@ const detail = {
     country: country.value,
   };
   data.push(detail);
-  console.log(data);  
+  console.log(data);
   loadData();
   modal.style.display = "none";
 
@@ -120,19 +121,17 @@ const detail = {
   lname.value = "";
   ename.value = "";
   mname.value = "";
-  gname.value = "";
+  // gname.value = "";
   birthday.value = "";
   city.value = "";
   state.value = "";
   country.value = "";
 }
 
-function searchh(){
-var search=document.getElementById("search").value;
-
-console.log(search);
-console.log(data.filter((d)=>d.firstName===search));
-loadData(data.filter((d)=>d.firstName===search));
+function searchh() {
+  var search = document.getElementById("search").value;
+  if (search) loadData(data.filter((d) => d.firstName.includes(search)));
+  else loadData();
 }
 
 function remove(event) {
@@ -152,11 +151,15 @@ let updateid = null;
 function update(event) {
   updateid = event.target.id;
   modaltwo.style.display = "block";
-
+  document
+    .getElementById("closeButtonForUpdateModal")
+    .addEventListener("click", () => {
+      console.log("hi");
+      modaltwo.style.display = "none";
+    });
   let ans = data.filter((gme) => {
     return gme.id === event.target.id;
   });
-
 
   const fname = document.getElementById("fnametwo");
   const lname = document.getElementById("lnametwo");
@@ -166,8 +169,8 @@ function update(event) {
   const city = document.getElementById("citytwo");
   const state = document.getElementById("statetwo");
   const country = document.getElementById("countrytwo");
-  const genamefemale = document.getElementById("genamefemale");
-  const genamemale = document.getElementById("genamemale");
+  const genamefemale = document.getElementById("genamefemaleupdate");
+  const genamemale = document.getElementById("gnamemaleupdate");
 
   fname.value = ans[0].firstName;
   lname.value = ans[0].lastName;
@@ -183,13 +186,45 @@ function update(event) {
   state.value = ans[0].state;
   country.value = ans[0].country;
 }
-function loadData(newData) {
-  // console.log(newData);  
-let finalData=data;
-if(newData)finalData=newData;
+
+const changePagination = (e) => {
+  loadData(null, +e.target.id.split("-")[1]);
+  console.log(document.getElementById(e.target.id).parentElement);
+  document.getElementById(e.target.id).classList.add("activePageBorder");
+};
+function loadData(newData, pageNumber) {
+  let finalPageNumber = constPageNumber;
+  if (pageNumber) finalPageNumber = pageNumber;
+  const totalUserCount = document.getElementById("totalUserCount");
+  // console.log(newData);
+  let finalData = data;
+  if (newData) finalData = newData;
   const table = document.getElementById("table");
+  totalUserCount.innerText = finalData.length;
   let rows = "";
-  for (let i = 0; i < finalData.length; i++) {
+  let paginationUi = "";
+  const totalPage = Math.ceil(finalData.length / constLimit);
+  for (let i = 0; i < totalPage; i++) {
+    paginationUi =
+      paginationUi +
+      `<li class="page-item"  onclick="changePagination(event)" ><a id='page-${
+        i + 1
+      }'
+      data-id='page-${
+        i + 1
+      }'style="margin: 0.5rem;" class="page-link" href="#">${i + 1}</a></li>`;
+  }
+  // paginationUi =
+  //   paginationUi +
+  //   `<div>Total User : <span id='totalUserCount'>${finalData.length}</span></div>`;
+
+  customPagination.innerHTML = paginationUi;
+  let start = (finalPageNumber - 1) * constLimit;
+  let end = finalPageNumber * constLimit;
+  let finalEnd = end;
+  if (finalEnd > finalData.length) finalEnd = finalData.length;
+
+  for (let i = start; i < finalEnd; i++) {
     rows =
       rows +
       `<tr>
@@ -211,7 +246,6 @@ if(newData)finalData=newData;
   table.innerHTML = rows;
 }
 
-
 function updatadata(event) {
   event.preventDefault();
 
@@ -219,8 +253,9 @@ function updatadata(event) {
   const lname = document.getElementById("lnametwo").value;
   const ename = document.getElementById("enametwo").value;
   const mname = document.getElementById("mnametwo").value;
-  const gname = document.querySelector('input[name="optradiotwo"]:checked').value; 
-   
+  const gname = document.querySelector('input[name="optradiotwo"]:checked')
+    .value;
+
   const birthday = document.getElementById("birthdaytwo").value;
   const city = document.getElementById("citytwo").value;
   const state = document.getElementById("statetwo").value;
@@ -237,7 +272,7 @@ function updatadata(event) {
     state: state,
     country: country,
   };
- 
+
   for (let i = 0; i < data.length; i++) {
     if (data[i].id === updateid) {
       data[i] = detail;
@@ -247,7 +282,6 @@ function updatadata(event) {
   modaltwo.style.display = "none";
 }
 fname.addEventListener("keypress", (e) => {
-
   if (e.target.value.trim() !== "");
   {
     spaname.innerHTML = "";
@@ -255,7 +289,6 @@ fname.addEventListener("keypress", (e) => {
 });
 
 lname.addEventListener("keypress", (e) => {
-
   if (e.target.value.trim() != "");
   {
     spalname.innerHTML = "";
@@ -263,24 +296,17 @@ lname.addEventListener("keypress", (e) => {
 });
 
 ename.addEventListener("keypress", (e) => {
-  if (e.target.value.trim() != "" && e.target.value === validateEmail(ename)); {
+  if (e.target.value.trim() != "" && e.target.value === validateEmail(ename));
+  {
     spaeiname.innerHTML = "";
   }
 });
 
-
-mname.addEventListener('keypress', (e) => {
-  if (e.target.value.trim() != ""); {
+mname.addEventListener("keypress", (e) => {
+  if (e.target.value.trim() != "");
+  {
     spaminame.innerHTML = "";
   }
 });
 
-
- 
-loadData()
-
-
- 
-  
-    
-
+loadData();
