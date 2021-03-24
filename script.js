@@ -205,11 +205,23 @@ function loadData(newData, pageNumber) {
   let paginationUi = "";
   const totalPage = Math.ceil(finalData.length / constLimit);
   for (let i = 0; i < totalPage; i++) {
-    paginationUi =
-      paginationUi +
-      `<li class="page-item"  onclick="changePagination(event)" ><a id='page-${
+    if (i === 0 && finalPageNumber === 1)
+      paginationUi =
+        paginationUi +
+        `<li class="page-item "  onclick="changePagination(event)" ><a  id='page-${
+          i + 1
+        }'
+      data-id='page-${
         i + 1
-      }'
+      }'style="margin: 0.5rem;" class="page-link activePageBorder" href="#">${
+          i + 1
+        }</a></li>`;
+    else
+      paginationUi =
+        paginationUi +
+        `<li class="page-item"  onclick="changePagination(event)" ><a id='page-${
+          i + 1
+        }'
       data-id='page-${
         i + 1
       }'style="margin: 0.5rem;" class="page-link" href="#">${i + 1}</a></li>`;
