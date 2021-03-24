@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link
@@ -105,25 +106,15 @@
     <div class="container">
       <div class="row">
         <div class="userlist">
-          <div class="panel panel-default">
-            <div
-              class="panel-heading"
-              style="
-                display: flex;
-
-                align-items: center;
-              "
-            >
+          <div class="panel panel-primary">
+            <div class="panel-heading" style="display: flex;align-items: center;">
               <h2 class="m-10">User List</h2>
-              <button id="myBtn" class="btn btn-primary m-10">Add Role</button>
-              <div
-                style="
+              <div style="
                   display: flex;
                   justify-content: center;
                   align-items: center;
                   flex-direction: row;
-                "
-              >
+                ">
                 <div class="form-group" style="margin-bottom: 0 !important">
                   <input
                   placeholder="Type to search"
@@ -141,7 +132,9 @@
                 >
                   search
                 </button>
+                <button id="myBtn" class="btn btn-primary m-10">Add Role</button>
               </div>
+              
             </div>
             <div class="panel-body" >
               <div>
@@ -565,7 +558,7 @@
                 "
               >
                 <label>Gender</label>
-                <label class="radio-inline">
+                <label class="radio-inline" style="margin-left: 10px">
                   <input
                     type="radio"
                     name="optradiotwo"
@@ -580,7 +573,7 @@
                     name="optradiotwo"
                     id="genamefemaleupdate"
                     value="Female"
-                    style="margin-right: 0rem"
+                   
                   />
                   Female
                 </label>

@@ -1,24 +1,24 @@
 let data = [
-  {
-    city: "Rajkot",
-    email: "ffd",
-    firstName: "hetvi",
-    gender: "female",
-    lastName: "kanani",
-    mobile: "65566",
-  },
-  {
-    email: "ffd",
-    firstName: "chaku",
-    gender: "female",
-    lastName: "kanani",
-  },
-  {
-    email: "ffd",
-    firstName: "vasu",
-    gender: "female",
-    lastName: "kanani",
-  },
+  // {
+  //   city: "Rajkot",
+  //   email: "ffd",
+  //   firstName: "hetvi",
+  //   gender: "female",
+  //   lastName: "kanani",
+  //   mobile: "65566",
+  // },
+  // {
+  //   email: "ffd",
+  //   firstName: "chaku",
+  //   gender: "female",
+  //   lastName: "kanani",
+  // },
+  // {
+  //   email: "ffd",
+  //   firstName: "vasu",
+  //   gender: "female",
+  //   lastName: "kanani",
+  // },
 ];
 const constLimit = 5;
 const constPageNumber = 1;
@@ -90,10 +90,9 @@ function add(event) {
     spaeiname.innerHTML = "please fill the field";
     return false;
   }
-  // if (ename.value != validateEmail(ename)) {
-  //   spaeiname.innerHTML = "plz proper email";
-
-  // }
+  if (ename.value != validateEmail(ename)) {
+    spaeiname.innerHTML = "plz proper email";
+}
   if (mname.value.trim() === "") {
     spaminame.innerHTML = "please fill the field";
     return false;
@@ -312,6 +311,7 @@ ename.addEventListener("keypress", (e) => {
   {
     spaeiname.innerHTML = "";
   }
+  return false;
 });
 
 mname.addEventListener("keypress", (e) => {
