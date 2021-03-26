@@ -207,3 +207,5 @@ mname.addEventListener('keypress', (e) => {
     spaminame.innerHTML = "";
   }
 });
+
+console.log("hii");
