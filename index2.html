@@ -603,7 +603,9 @@
         });
         var table=$("#datatable").DataTable();
         $("#buttonTest").on("click",function(){
-         table.row.add([fname.value,lname.value,ename.value,mname.value,gname.value,birthday.value,city.value,state.value,country.value]).draw(false);
+         table.row.add([fname.value,lname.value,ename.value,mname.value,gname.value,birthday.value,city.value,state.value,country.value,
+          `<th><i class="fa fa-pencil" aria-hidden="true"  onclick="update(event)" </th></i>
+         <th> <i class="fa fa-trash-o" aria-hidden="true  onclick="remove(event)"></i></th>`]).draw(false);
         }); 
       });
     </script>
